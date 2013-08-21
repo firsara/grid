@@ -1,0 +1,133 @@
+
+// Grid Container
+.container-fluid {
+  margin: 0 auto;
+  position: relative;
+  width: auto;
+  max-width: 1600px;
+  padding: 0 5%;
+
+  &,
+  .row {
+    @include clearfix();
+  }
+}
+
+.container {
+  margin: 0 auto;
+  width: auto;
+}
+
+[class*="#{$attribute}"] {
+  padding: 0;
+  min-height: 1px;
+  display: block;
+  float: left;
+}
+
+
+@if $fixed-container == true {
+  .container {
+    @include grid($columns, $width, $gutter, desktop);
+  }
+}
+
+.container-fluid {
+  @include grid-fluid($columns, $width, $gutter, desktop);
+}
+
+.wide-only,
+.tablet-only,
+.phone-only,
+.mobile-only {
+  display: none;
+}
+
+.hidden-desktop {
+  display: none;
+}
+
+
+
+
+@if $wide == true {
+  @include respond-to(wide) {
+    @if $fixed-container == true {
+      .container {
+        @include grid($columns, $width-wide, $gutter-wide, wide);
+      }
+    }
+
+    .container-fluid {
+      @include grid-fluid($columns, $width, $gutter, wide);
+    }
+
+    .hidden-wide {
+      display: none;
+    }
+    .desktop-only {
+      display: none;
+    }
+    .wide-only {
+      display: inherit;
+    }
+  }
+}
+
+
+
+@if $tablet == true {
+  @include respond-to(tablet) {
+    @if $fixed-container == true {
+      .container {
+        @include grid($columns, $width-tablet, $gutter-tablet, tablet);
+      }
+    }
+
+    .container-fluid {
+      @include grid-fluid($columns, $width, $gutter, tablet);
+    }
+
+    .hidden-tablet {
+      display: none;
+    }
+    .desktop-only {
+      display: none;
+    }
+    .tablet-only {
+      display: inherit;
+    }
+  }
+}
+
+
+
+@if $mobile == true {
+  @include respond-to(mobile) {
+    @if $fixed-container == true {
+      .container,
+      .container-fluid {
+        @include grid-fluid($columns, $width, $gutter, mobile);
+      }
+    } @else {
+      .container-fluid {
+        @include grid-fluid($columns, $width, $gutter, mobile);
+      }
+    }
+
+    .hidden-mobile,
+    .hidden-phone {
+      display: none;
+    }
+    .desktop-only {
+      display: none;
+    }
+    .tablet-only {
+      display: none;
+    }
+    .phone-only,
+    .mobile-only {
+      display: inherit;
+    }
+  }
+}

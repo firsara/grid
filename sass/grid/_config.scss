@@ -1,0 +1,38 @@
+$fixed-container: false !default; // output styles for fixed column widths
+$wide: true !default; // use defintions for wide layout
+$tablet: true !default; // use definitions for tablet layout
+$mobile: true !default; // use definitions for mobile layout
+
+$columns: 12 !default; // up to 20 columns
+$gutter: 20 !default; // default gutter
+$width: 60 !default; // default column width
+
+$gutter-wide: 30 !default; // gutter for wide layout
+$width-wide: 70 !default; // width for wide layout
+
+$gutter-tablet: 42 !default; // gutter for tablet layout
+$width-tablet: 20 !default; // width for tablet layout
+
+$breakpoint-wide: 1300px !default; // breakpoint width for wide layout
+$breakpoint-tablet: 980px !default; // breakpoint width for tablet layout
+$breakpoint-mobile: 768px !default; // breakpoint width for mobile layout
+
+
+
+// default style
+// outputs: one-col, two-col, three-col, [...]
+
+$attribute: "col";
+$column-prefix: "";
+$column-suffix: "-col";
+$column-names: (zero, one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve, thirteen, fourteen, fifteen, sixteen, seventeen, eighteen, nineteen, twenty);
+
+
+
+// alternate style
+// outputs: span1, span2, span3, [...]
+
+// $attribute: "span";
+// $column-prefix: "span";
+// $column-suffix: "";
+// $column-names: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20);
